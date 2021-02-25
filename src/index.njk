@@ -54,6 +54,22 @@ layout: base.njk
           </div>
           <div class="row"></div>
           <div class="row"></div>
+
+
+<h4> post list </h4>
+
+
+
+
+<div class="post_list">
+{%- for post in collections.posts %}
+  
+  <a href="{{ post.url }}"><code>{{ post.url }}</code></a>
+    <p>{{ post.data.title }}</p>
+    <p>Publish Date: {{ post.data.published_on }}</p>
+  
+{%- endfor %}
+</div>
           
         </main>
         
