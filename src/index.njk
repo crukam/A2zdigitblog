@@ -3,73 +3,28 @@ title: A2z digit blog
 layout: base.njk
 ---
 
+  <!--Main content-->
+  <main class="container p-4">
 
-        <!--Main content-->
-        <main class="container p-4">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem;">
-                <a href="/posts/dockerpost/"><img src="./img/docker.jpeg" class="card-img-top" alt="..."></a>
-                <div class="card-body">
-                  <h5 class="card-title">How to use docker on linux?</h5>
-                  <p class="card-text"> Linux is a free open source, fully-customizable operating system. 
-                                        It is available under numerous distributions, 
-                                        which sometimes differ from one another. <br><a href="/posts/dockerpost/">Read more</a></p>
-                </div>
-               <div class="border d-flex p-3">
-                  <img src="./img/author.png" class=" rounded-circle  border ms-2 author-img" alt ="...">
-                  <div class="author-name"> C Rukamiza</div>
-                  
-                </div>
-              </div>
+    <div class="row">
+       {% for post in collections.posts %}
+        <div class="col-md-4">
+          <div class="card m-4" style="width: 18rem;">
+            <a href="{{ post.data.route }}"><img src="{{ post.data.post_picturefile_path }}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">{{ post.data.title }}</h5>
+              <p class="card-text"> {{ post.data.intro }} <br><a href="{{ post.data.route }}">Read more</a></p>
             </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem;">
-                <img src="./img/internet.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">How does the internet work?</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-               <div class="border d-flex p-3">
-                  <img src="./img/author.png" class=" rounded-circle  border ms-2 author-img" alt ="...">
-                  <div class="author-name"> C Rukamiza</div>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem;">
-                <img src="./img/jamstack.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">What it is JAMSTACK?</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-               <div class="border d-flex p-3">
-                  <img src="./img/author.png" class=" rounded-circle  border ms-2 author-img" alt ="...">
-                  <div class="author-name"> C Rukamiza</div>
-                  
-                </div>
-              </div>
+           <div class="border d-flex p-3">
+              <img src="{{ post.data.auth_picturefile_path }}" class=" rounded-circle  border ms-2 author-img" alt ="...">
+              <div class="ms-2 author-name"> {{ post.data.author }}</div>
             </div>
           </div>
-          <div class="row"></div>
-          <div class="row"></div>
+        </div>
+       {% endfor %}
 
-
-<h4> post list </h4>
-
-
-
-
-<div class="post_list">
-{%- for post in collections.posts %}
-  
-  <a href="{{ post.url }}"><code>{{ post.url }}</code></a>
-    <p>{{ post.data.title }}</p>
-    <p>Publish Date: {{ post.data.published_on }}</p>
-  
-{%- endfor %}
-</div>
-          
-        </main>
-        
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+  </main>
+      
