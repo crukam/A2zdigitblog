@@ -1,0 +1,16 @@
+---
+title: About A2z Digit blog
+layout: base.njk
+---
+<div class="container">
+    <h2> List of all articles </h2>
+    {%- for post in collections.posts | reverse %}
+        <div class="d-flex m-4">
+            <div class="align-middle mx-2"><a  href="{{ post.data.route }}"><img src="{{ post.data.post_minipicture_path }}" alt= "..."></a></div>
+            <div class="d-flex flex-column">
+              <span >{{ post.data.title }}</span>
+              <span>Publish Date: {{ post.data.published_on }}</span>
+            </div>
+        </div>
+    {%- endfor %}
+</div>
