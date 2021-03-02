@@ -33,7 +33,7 @@
                             <a class="nav-link" href="/contact/">Contact us</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Top blog articles</a>
+                            <a class="nav-link" href="#">articles archive</a>
                           </li>
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,6 +60,7 @@
               <hr>
               <div class="post_list ">
                 {%- for post in collections.posts | reverse %}
+                  {% if loop.index < 4 %}
                   <div class="d-flex m-4">
                       <div class="align-middle mx-2"><a  href="{{ post.data.route }}"><img src="{{ post.data.post_minipicture_path }}" alt= "..."></a></div>
                       <div class="d-flex flex-column">
@@ -67,7 +68,9 @@
                         <span>Publish Date: {{ post.data.published_on }}</span>
                       </div>
                   </div>
+                  {% endif %}
                {%- endfor %}
+                <div class="text-center"><a class="link-primary" href="/archives/">Archives</a></div>
               </div>
             </div>
             <div class="col-sm-4">
